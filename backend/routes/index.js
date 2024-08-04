@@ -4,6 +4,9 @@ const users = require('../src/users/routes');
 // const getData = require('../middlewares/getData');
 
 module.exports = (app) => {
+  app.get('/', (req,res)=>{
+    res.json("Sharry Singh Music.");
+  })
   app.use('/status', status);
   app.use('/users', users);
   // app.use('/users', validateAuth.checkIfAuthenticated, getData.getGeoip, users);

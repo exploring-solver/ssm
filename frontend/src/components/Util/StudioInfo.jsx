@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import assets from '../../assets/assets';
+
 const StudioInfo = () => {
   const branches = [
     {
@@ -17,28 +18,28 @@ const StudioInfo = () => {
 
   return (
     <Box color="white" bgcolor="#070a15">
-      <Box sx={{ display: "flex", flex: "flex-wrap",justifyContent:"space-between", gap: "10px" }} p={3}>
-        <Box sx={{ width: "30%" }}>
+      <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "10px" }} p={3}>
+        <Box sx={{ width: { xs: "100%", md: "30%" } }}>
           <Typography variant="h6" gutterBottom>
             <img src={assets.logo} className='w-32' alt="" />
           </Typography>
           <Typography variant="body2">
-            worked with many major Artists/Labels i.e Karan Aujla , Gurinder rai , Prem dhillon , Jerry , T-series , Speed records etc. We can produce / mix master any type of music.
+            Worked with many major Artists/Labels i.e Karan Aujla, Gurinder Rai, Prem Dhillon, Jerry, T-series, Speed Records etc. We can produce/mix master any type of music.
           </Typography>
         </Box>
-        <Box container spacing={2} className='flex flex-wrap gap-10'>
+        <Grid container spacing={2} className='flex flex-wrap gap-10'>
           {branches.map((branch, index) => (
             <Grid item xs={12} sm={6} key={index}>
-              <Typography >{branch.name}</Typography>
+              <Typography>{branch.name}</Typography>
               <hr className='w-1/2 my-3' />
               <Typography variant="body2">{branch.phone}</Typography>
               <Typography variant="body2">{branch.email}</Typography>
             </Grid>
           ))}
-        </Box>
+        </Grid>
       </Box>
       <hr />
-      <Typography sx={{padding:"10px 0", textAlign:"center"}}>Copyright © 2024 sharrysinghmusic.com</Typography>
+      <Typography sx={{ padding: "10px 0", textAlign: "center" }}>Copyright © 2024 sharrysinghmusic.com</Typography>
     </Box>
   );
 };

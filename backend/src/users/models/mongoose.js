@@ -16,7 +16,10 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
+      // Password is required only for non-OAuth users
+      required: function() {
+        return !this.googleId;
+      },
     },
     googleId: String,
     accessToken: String,

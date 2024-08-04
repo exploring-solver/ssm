@@ -5,7 +5,7 @@ import assets from '../../assets/assets';
 
 const ContactInfo = () => {
   return (
-    <div bgcolor="error.main" sx={{display:"flex", width:"100%"}} className='bg-red-800 flex sm:flex-wrap-reverse flex-wrap w-full' >
+    <div bgcolor="error.main" sx={{display:"flex", width:"100%"}} className='bg-red-800 flex sm:flex-nowrap flex-wrap w-full' >
       <Box  color="white" p={3}>
         <Typography variant="h5" gutterBottom>
           Don't hesitate to contact us

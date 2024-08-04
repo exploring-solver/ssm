@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box, Typography, Grid, Card, CardContent, CardMedia } from '@mui/material';
+import Banner from '../../Util/Banner';
+import assets from '../../../assets/assets';
 
 const ServicesPage = () => {
   const services = [
@@ -22,9 +24,7 @@ const ServicesPage = () => {
 
   return (
     <Box sx={{ bgcolor: 'background.default', p: 4 }}>
-      <Typography variant="h4" component="h2" gutterBottom>
-        Our Services
-      </Typography>
+      <Banner backgroundImage={assets.aspcontact} heading={"Services"} />
       <Grid container spacing={3}>
         {services.map((service, index) => (
           <Grid item xs={12} md={4} key={index}>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box, Typography, Grid, Card, CardContent } from '@mui/material';
+import Banner from '../../Util/Banner';
+import assets from '../../../assets/assets';
 
 const BlogPreview = () => {
   const blogPosts = [
@@ -21,11 +23,9 @@ const BlogPreview = () => {
   ];
 
   return (
-    <Box sx={{ bgcolor: 'background.paper', p: 4 }}>
-      <Typography variant="h4" component="h2" gutterBottom>
-        Blog
-      </Typography>
-      <Grid container spacing={3}>
+    <Box sx={{ bgcolor: 'background.paper', p: 4 ,backgroundColor:'whitesmoke'}} >
+      <Banner heading="Blog" backgroundImage={assets.aspcontact}/>
+      <Grid container spacing={3} sx={{ mt: 4 }}>
         {blogPosts.map((post, index) => (
           <Grid item xs={12} md={4} key={index}>
             <Card>

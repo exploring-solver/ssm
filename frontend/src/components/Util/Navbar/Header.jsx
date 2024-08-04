@@ -1,8 +1,27 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-const Header = () => {
-  const menuItems = ['Home', 'Sound Kits', 'Courses', 'Blogs', 'About Us', 'Services'];
+const Header = ({isAuthenticated, setIsAuthenticated, setIsSubscribed}) => {
+  const menuItems = [
+    { label: 'Home', to: '/' },
+    { label: 'Sound Kits', to: '/soundkits' },
+    { label: 'Courses', to: '/courses' },
+    { label: 'Blogs', to: '/blogs' },
+    { label: 'About Us', to: '/about' },
+    { label: 'Services', to: '/services' },
+  ];
+
+  const handleLogout = async () => {
+    try {
+      window.location.href = 'http://localhost:5000/users/logout';
+      setIsAuthenticated(false);
+      setIsSubscribed(false);
+    } catch (error) {
+      console.error('Logout failed', error);
+    }
+  };
 
   return (
     <AppBar position="static" color="transparent" elevation={0}>
@@ -12,11 +31,21 @@ const Header = () => {
         </Typography>
         <Box>
           {menuItems.map((item, index) => (
-            <Button key={index} color="inherit" sx={{ color: item === 'Home' ? 'red' : 'inherit' }}>
-              {item}
+            <Button
+              key={index}
+              component={Link}
+              to={item.to}
+              color="inherit"
+              sx={{ color: item.label === 'Home' ? 'red' : 'inherit' }}
+            >
+              {item.label}
             </Button>
           ))}
         </Box>
+        { isAuthenticated &&
+
+          <Button onClick={handleLogout}>Logout</Button>
+        }
       </Toolbar>
     </AppBar>
   );

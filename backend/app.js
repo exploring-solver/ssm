@@ -1,10 +1,27 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressip = require('express-ip');
-const session = require('express-session'); // Add this line
+const session = require('express-session');
 const passport = require('./config/passport');
+const cors = require('cors');
 
 const app = express();
+const allowedOrigins = ['http://localhost:5173'];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+    credentials: true, // Enable the Access-Control-Allow-Credentials header
+  })
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,24 +35,6 @@ app.use(
 app.use(expressip().getIpInfoMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET, POST, OPTIONS, PUT, PATCH, DELETE'
-  );
-
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-Requested-With,content-type'
-  );
-
-  res.setHeader('Access-Control-Allow-Credentials', true);
-
-  next();
-});
 
 require('./routes')(app);
 

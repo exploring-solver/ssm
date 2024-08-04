@@ -14,18 +14,23 @@ exports.googleAuthCallback = (req, res, next) => {
       return next(err);
     }
     if (!user) {
-      return res.redirect('/login');
+      return res.redirect('http://localhost:5173/login');
     }
     req.logIn(user, (err) => {
       if (err) {
         return next(err);
       }
-      return res.redirect('/dashboard');
+      return res.redirect('http://localhost:5173/courses');
     });
   })(req, res, next);
 };
 
-exports.logout = (req, res) => {
-  req.logout();
-  res.redirect('/');
+exports.logout = (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err); // Properly handle the error
+    }
+    // Redirect to frontend after logout
+    res.redirect('http://localhost:5173');
+  });
 };

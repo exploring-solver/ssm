@@ -5,8 +5,9 @@ import axios from 'axios';
 function Home({ isAuthenticated }) {
   const handleLogout = async () => {
     try {
-      await axios.get('/auth/logout', { withCredentials: true });
-      window.location.reload();
+      // await axios.get('http://localhost:5000/auth/logout', { withCredentials: true });
+      window.location.href = 'http://localhost:5000/users/logout';
+
     } catch (error) {
       console.error('Logout failed:', error);
     }

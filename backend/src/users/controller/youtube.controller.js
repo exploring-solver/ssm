@@ -29,7 +29,7 @@ exports.checkSubscription = async (req, res) => {
     });
     console.log('OAuth2 Client credentials set');
 
-    const response = youtube.subscriptions.list({
+    const response = await youtube.subscriptions.list({
       auth: oauth2Client,
       part: 'snippet',
       mine: true,

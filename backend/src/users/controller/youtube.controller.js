@@ -9,13 +9,13 @@ exports.checkSubscription = async (req, res) => {
 
   try {
     const userId = req.user.id;
-    console.log('User ID:', userId);
+    // console.log('User ID:', userId);
 
     const channelId = process.env.YOUTUBE_CHANNEL_ID;
-    console.log('YouTube Channel ID:', channelId);
+    // console.log('YouTube Channel ID:', channelId);
 
     const googleOAuth = await GoogleOAuth.findOne({ userId });
-    console.log('Google OAuth Data:', googleOAuth);
+    // console.log('Google OAuth Data:', googleOAuth);
 
     if (!googleOAuth) {
       console.log('User not authenticated with Google');
@@ -29,19 +29,19 @@ exports.checkSubscription = async (req, res) => {
     });
     console.log('OAuth2 Client credentials set');
 
-    const response = await youtube.subscriptions.list({
+    const response = youtube.subscriptions.list({
       auth: oauth2Client,
       part: 'snippet',
       mine: true,
       forChannelId: channelId,
     });
-    console.log('YouTube API response:', response.data);
+    // console.log('YouTube API response:', response.data);
 
     const isSubscribed = response.data.items.length > 0;
-    console.log('Is Subscribed:', isSubscribed);
+    // console.log('Is Subscribed:', isSubscribed);
 
     await User.findByIdAndUpdate(userId, { isSubscribed });
-    console.log('User subscription status updated in the database');
+    // console.log('User subscription status updated in the database');
 
     res.json({ isSubscribed });
   } catch (error) {

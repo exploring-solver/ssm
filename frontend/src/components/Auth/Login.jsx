@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
-
+  const backendurl = import.meta.env.VITE_BACKEND_URL;
+  console.log()
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:5000/users/google';
+    window.location.href = `${backendurl}/users/google`;
   };
 
   return (

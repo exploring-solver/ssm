@@ -19,11 +19,11 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [loading, setLoading] = useState(true);
-
+  const backendurl = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
     const fetchAuthStatus = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/users/check-subscription', { withCredentials: true });
+        const response = await axios.get(`${backendurl}/users/check-subscription`, { withCredentials: true });
         setIsAuthenticated(true);
         setIsSubscribed(response.data.isSubscribed);
       } catch (error) {

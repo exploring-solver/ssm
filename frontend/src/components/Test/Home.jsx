@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Home({ isAuthenticated }) {
+  const backendurl = import.meta.env.VITE_BACKEND_URL;
   const handleLogout = async () => {
     try {
       // await axios.get('http://localhost:5000/auth/logout', { withCredentials: true });
-      window.location.href = 'http://localhost:5000/users/logout';
+      window.location.href = `${backendurl}/users/logout`;
 
     } catch (error) {
       console.error('Logout failed:', error);

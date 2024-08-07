@@ -12,10 +12,11 @@ const Header = ({isAuthenticated, setIsAuthenticated, setIsSubscribed}) => {
     { label: 'About Us', to: '/about' },
     { label: 'Services', to: '/services' },
   ];
+  const backendurl = import.meta.env.VITE_BACKEND_URL;
 
   const handleLogout = async () => {
     try {
-      window.location.href = 'http://localhost:5000/users/logout';
+      window.location.href = `${backendurl}/users/logout`;
       setIsAuthenticated(false);
       setIsSubscribed(false);
     } catch (error) {

@@ -19,7 +19,7 @@ const HomePage = () => {
       <StudioSelection />
       <InstaSoundCloud />
       <Testimonials />
-      <ContactInfo />
+      {/* <ContactInfo /> */}
     </Box>
   )
 }

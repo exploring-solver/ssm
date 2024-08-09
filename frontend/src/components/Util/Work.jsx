@@ -2,12 +2,12 @@ import React from 'react';
 import { Box, Typography, Grid, Card, CardContent } from '@mui/material';
 
 const songs = [
-  { title: 'Song 1', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_1' },
-  { title: 'Song 2', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_2' },
-  { title: 'Song 3', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_3' },
-  { title: 'Song 4', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_4' },
-  { title: 'Song 5', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_5' },
-  { title: 'Song 6', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_6' },
+  { title: '', videoUrl: 'https://www.youtube.com/embed/OzTLe8l3G-A' },
+  { title: '', videoUrl: 'https://www.youtube.com/embed/Y2G0ZkhrFpY' },
+  { title: '', videoUrl: 'https://www.youtube.com/embed/wHrZVGdw5vA' },
+  { title: '', videoUrl: 'https://www.youtube.com/embed/exfIFOuU_cw' },
+  { title: '', videoUrl: 'https://www.youtube.com/embed/vLBj3ds5icE' },
+  { title: '', videoUrl: 'https://www.youtube.com/embed/lA3KMV6VzS4' },
 ];
 
 const ReviewOurWork = () => {

@@ -21,7 +21,7 @@ export default function Error404() {
             <Typography variant="h6">
               The page you’re looking for doesn’t exist.
             </Typography>
-            <Button variant="contained">Back Home</Button>
+            <Button href='/' variant="contained">Back Home</Button>
           </Grid>
           <Grid xs={6}>
             <img

@@ -31,9 +31,6 @@ const ReviewOurWork = () => {
           <Grid item xs={12} md={4} key={index}>
             <Card sx={{ backgroundColor: 'transparent', color: 'white' }}>
               <CardContent>
-                <Typography variant="h6" component="div" gutterBottom>
-                  {song.title}
-                </Typography>
                 <Box
                   component="iframe"
                   width="100%"
